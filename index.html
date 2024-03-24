@@ -510,29 +510,34 @@
         
         <script>
             var icon = document.getElementById('lilshit');
-            var dx = 2.5; // Speed along x-axis
-            var dy = 2.5; // Speed along y-axis
-    
+            var dx = 2; // Speed along x-axis
+            var dy = 2; // Speed along y-axis
+        
             function moveIcon() {
                 var x = icon.offsetLeft + dx;
                 var y = icon.offsetTop + dy;
-    
-                // Use window.innerWidth and window.innerHeight to bounce within the viewport
-                if (x <= 0 || x + icon.offsetWidth >= window.innerWidth) {
+                var iconWidth = icon.offsetWidth;
+                var iconHeight = icon.offsetHeight;
+        
+                // Adjusted to account for the icon's dimensions
+                if (x <= 0 || x + iconWidth >= window.innerWidth) {
                     dx *= -1; // Reverse direction
+                    x = Math.max(0, Math.min(x, window.innerWidth - iconWidth)); // Clamp within bounds
                 }
-                if (y <= 0 || y + icon.offsetHeight >= window.innerHeight) {
+                if (y <= 0 || y + iconHeight >= window.innerHeight) {
                     dy *= -1; // Reverse direction
+                    y = Math.max(0, Math.min(y, window.innerHeight - iconHeight)); // Clamp within bounds
                 }
-    
+        
                 icon.style.left = x + 'px';
                 icon.style.top = y + 'px';
-    
+        
                 requestAnimationFrame(moveIcon);
             }
-    
+        
             moveIcon();
         </script>
+
     </body>
     </html>
 
