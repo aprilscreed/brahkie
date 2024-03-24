@@ -68,12 +68,15 @@
             margin-top: 10px;
         }
         .download-container {
-            color: blue; /* Ensures download links are blue */
+            color: blue !important; /* Ensures link color is always blue */
             flex: 0 0 220px; /* Fixed width, no flex grow or shrink */
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 40px 0;
+        }
+        .download-container a:visited {
+            color: blue !important; /* Prevents visited links from turning purple */
         }
         .archive-entry a {
             text-decoration: none;
