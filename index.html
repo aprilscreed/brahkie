@@ -91,10 +91,12 @@
         .contact-email {
             color: white; /* Sets the text color to white */
             font-size: 12px; /* Sets the font size to 12px */
-            position: absolute; /* Positions the element absolutely on the page */
+            position: fixed; /* Fixes the element relative to the viewport */
             right: 50px; /* 50px from the right side of the screen */
             top: 50px; /* 50px from the top of the screen */
+            z-index: 10; /* Ensures the email is above other elements */
         }
+
 
 
     </style>
