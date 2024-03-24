@@ -88,14 +88,15 @@
             text-align: center; /* Centers the text */
             margin-top: 320px; /* Adds a bit of space between the title GIF and the text */
         }
-        .contact-email {
-            color: white; /* Sets the text color to white */
-            font-size: 12px; /* Sets the font size to 12px */
-            position: fixed; /* Fixes the element relative to the viewport */
-            right: 50px; /* 50px from the right side of the screen */
-            top: 50px; /* 50px from the top of the screen */
-            z-index: 1000; /* Ensures the email is above other elements */
+       .contact-email {
+            color: white !important; /* Ensures text color is white */
+            font-size: 12px !important; /* Sets the font size to 12px */
+            position: fixed !important; /* Keeps the position fixed relative to the viewport */
+            right: 50px !important; /* 50px from the right side of the screen */
+            top: 50px !important; /* 50px from the top of the screen */
+            z-index: 9999 !important; /* Ensures the email is above most other elements */
         }
+
 
     </style>
 </head>
