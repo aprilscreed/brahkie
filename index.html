@@ -3,32 +3,38 @@
 <head>
 
    <script>
-      var dx = 2; // Delta x: change in position along the x-axis
-      var dy = 2; // Delta y: change in position along the y-axis
-      var icon = document.getElementById('lilshit');
-    
-      function moveIcon() {
-        var x = icon.offsetLeft + dx; // New x-position
-        var y = icon.offsetTop + dy;   // New y-position
-    
-        // Check for right or left viewport boundary
-        if (x <= 0 || x >= window.innerWidth - icon.offsetWidth) {
-          dx = -dx; // Reverse direction on the x-axis
-        }
-    
-        // Check for bottom or top viewport boundary
-        if (y <= 0 || y >= window.innerHeight - icon.offsetHeight) {
-          dy = -dy; // Reverse direction on the y-axis
-        }
-    
-        icon.style.left = x + 'px';
-        icon.style.top = y + 'px';
-    
-        requestAnimationFrame(moveIcon); // Continue the loop
-      }
-    
-      moveIcon(); // Start the loop
-    </script>
+     var dx = 2; // Change in position along the x-axis
+     var dy = 2; // Change in position along the y-axis
+     var icon = document.getElementById('lilshit');
+   
+     // Initialize position
+     icon.style.left = '0px';
+     icon.style.top = '0px';
+   
+     function moveIcon() {
+       var rect = icon.getBoundingClientRect();
+       
+       var x = rect.left + dx;
+       var y = rect.top + dy;
+   
+       // Check for viewport boundary and reverse direction if needed
+       if (x <= 0 || x + rect.width >= window.innerWidth) {
+         dx = -dx;
+       }
+       if (y <= 0 || y + rect.height >= window.innerHeight) {
+         dy = -dy;
+       }
+   
+       // Update position
+       icon.style.left = x + 'px';
+       icon.style.top = y + 'px';
+   
+       requestAnimationFrame(moveIcon);
+     }
+   
+     requestAnimationFrame(moveIcon);
+   </script>
+
 
 
 
@@ -138,7 +144,6 @@
     <div class="element-box">
 
     <img id="lilshit" src="https://github.com/aprilscreed/brahkie/blob/main/assets/elements/lilshit.png?raw=true" style="position: fixed; width: 50px; height: 50px;">
-
 
         
 
