@@ -487,56 +487,55 @@
     </div>
 
    
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <title>Bouncing Image Demo</title>
-       <style>
-           body {
-               margin: 0;
-               overflow: hidden; /* Prevents scrollbars from appearing */
-           }
-           #lilshit {
-               position: fixed;
-               width: 50px;
-               height: 50px;
-               top: 0;
-               left: 0;
-           }
-       </style>
-   </head>
-   <body>
-       <img id="lilshit" src="https://github.com/aprilscreed/brahkie/blob/main/assets/elements/lilshit.png?raw=true">
-   
-       <script>
-           var icon = document.getElementById('lilshit');
-           var dx = 2;
-           var dy = 2;
-   
-           function moveIcon() {
-               var x = icon.offsetLeft + dx;
-               var y = icon.offsetTop + dy;
-   
-               if (x <= 0 || x + icon.offsetWidth >= window.innerWidth) {
-                   dx *= -1; // Reverse direction
-               }
-               if (y <= 0 || y + icon.offsetHeight >= window.innerHeight) {
-                   dy *= -1; // Reverse direction
-               }
-   
-               icon.style.left = x + 'px';
-               icon.style.top = y + 'px';
-   
-               requestAnimationFrame(moveIcon);
-           }
-   
-           // Start moving the icon once the page and image have fully loaded
-           window.onload = function() {
-               moveIcon();
-           };
-       </script>
-   </body>
-   </html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Bouncing Image Demo</title>
+        <style>
+            body {
+                margin: 0;
+                /* Overflow not hidden to allow scrolling */
+            }
+            #lilshit {
+                position: fixed; /* Use fixed to keep it within the viewport */
+                width: 50px;
+                height: 50px;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="lilshit" src="https://github.com/aprilscreed/brahkie/blob/main/assets/elements/lilshit.png?raw=true">
+        
+        <script>
+            var icon = document.getElementById('lilshit');
+            var dx = 2; // Speed along x-axis
+            var dy = 2; // Speed along y-axis
+    
+            function moveIcon() {
+                var x = icon.offsetLeft + dx;
+                var y = icon.offsetTop + dy;
+    
+                // Use window.innerWidth and window.innerHeight to bounce within the viewport
+                if (x <= 0 || x + icon.offsetWidth >= window.innerWidth) {
+                    dx *= -1; // Reverse direction
+                }
+                if (y <= 0 || y + icon.offsetHeight >= window.innerHeight) {
+                    dy *= -1; // Reverse direction
+                }
+    
+                icon.style.left = x + 'px';
+                icon.style.top = y + 'px';
+    
+                requestAnimationFrame(moveIcon);
+            }
+    
+            moveIcon();
+        </script>
+    </body>
+    </html>
+
 
    
 </body>
