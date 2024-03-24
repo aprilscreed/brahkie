@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            var followCursor = document.getElementById('followCursor');
+            followCursor.style.left = e.pageX + 'px';
+            followCursor.style.top = e.pageY + 'px';
+            followCursor.style.display = 'block';
+        });
+    </script>
+
+
     <title>BRAHKIES ARCHIVE</title>
     <link rel="icon" type="image/x-icon" href="https://github.com/brahkiearchive/brarchive/blob/main/brahkie/assets/favicon.ico?raw=true">
     <style>
@@ -104,6 +115,11 @@
     <div class="contact-email">aprilscreed@icloud.com</div>
     <div class="video-title-text">BRAHKIE'S FIRST 25 VIDEOS</div>
     <div class="element-box">
+
+    <img id="followCursor" src="https://github.com/aprilscreed/brahkie/blob/main/assets/elements/lilshit.png?raw=true" style="position: absolute; display: none;">
+
+
+        
 
         
          <!-- Archive Entry Infinity -->
