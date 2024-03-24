@@ -3,13 +3,18 @@
 <head>
 
     <script>
-        document.addEventListener('mousemove', function(e) {
-            var followCursor = document.getElementById('followCursor');
-            followCursor.style.left = e.pageX + 'px';
-            followCursor.style.top = e.pageY + 'px';
-            followCursor.style.display = 'block';
-        });
+    document.addEventListener('mousemove', function(e) {
+        var followCursor = document.getElementById('followCursor');
+        // Adjust these offsets to move the icon closer to or further from the cursor.
+        var offsetX = 10; // Horizontal offset from the cursor. Adjust as needed.
+        var offsetY = 10; // Vertical offset from the cursor. Adjust as needed.
+        followCursor.style.left = (e.pageX + offsetX) + 'px';
+        followCursor.style.top = (e.pageY + offsetY) + 'px';
+        followCursor.style.display = 'block';
+        followCursor.style.position = 'absolute';
+    });
     </script>
+
 
 
     <title>BRAHKIES ARCHIVE</title>
